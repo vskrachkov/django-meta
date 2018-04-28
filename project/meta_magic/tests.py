@@ -1,7 +1,6 @@
 from django.test import TestCase
 
-# Create your tests here.
-from meta_magic.models import Author, ModelsInfo
+from meta_magic.models import Author
 
 
 class MyTestCase(TestCase):
@@ -9,5 +8,5 @@ class MyTestCase(TestCase):
         model = Author()
         model.name = 'Some name'
         model.save()
-        m = ModelsInfo.get_model(model.__class__.__name__)
-        print(m)
+        ModelsInfo = model.app_meta.ModelsInfo
+        print(ModelsInfo)
